@@ -1,9 +1,15 @@
 package tasks;
 
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 public class Task02 {
+
+    private static void getOutput(Stream<String> products) {
+        AtomicInteger counter = new AtomicInteger(1);
+        products.forEach(name -> System.out.println(counter.getAndIncrement() + ") " + name));
+    }
 
     private static Stream<String> filterProducts(Map<String, Double> products) {
         return products.entrySet().stream().filter(product -> product.getValue() <= 2).map(Map.Entry::getKey);
