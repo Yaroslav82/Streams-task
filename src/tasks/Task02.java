@@ -16,7 +16,9 @@ public class Task02 {
     }
 
     private static Stream<String> filterProducts(Map<String, Double> products) {
-        return products.entrySet().stream().filter(product -> product.getValue() <= 2).map(Map.Entry::getKey);
+        return products.entrySet().stream()
+                .filter(product -> product.getValue() <= 2)
+                .map(Map.Entry::getKey);
     }
 
     private static Map<String, Double> getProducts() {
