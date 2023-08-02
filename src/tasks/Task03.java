@@ -1,9 +1,15 @@
 package tasks;
 
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 public class Task03 {
+
+    private static void getOutput(Stream<String> forecast) {
+        AtomicInteger counter = new AtomicInteger(1);
+        forecast.forEach(day -> System.out.println(counter.getAndIncrement() + ") " + day));
+    }
 
     private static Stream<String> filterForecast(Map<String, Integer> forecast) {
         return forecast.entrySet().stream()
