@@ -6,6 +6,10 @@ import java.util.stream.Stream;
 
 public class Task02 {
 
+    public static void main(String[] args) {
+        getOutput(filterProducts(getProducts()));
+    }
+
     private static void getOutput(Stream<String> products) {
         AtomicInteger counter = new AtomicInteger(1);
         products.forEach(name -> System.out.println(counter.getAndIncrement() + ") " + name));
