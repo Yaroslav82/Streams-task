@@ -6,6 +6,10 @@ import java.util.stream.Stream;
 
 public class Task03 {
 
+    public static void main(String[] args) {
+        getOutput(filterForecast(getForecast()));
+    }
+
     private static void getOutput(Stream<String> forecast) {
         AtomicInteger counter = new AtomicInteger(1);
         forecast.forEach(day -> System.out.println(counter.getAndIncrement() + ") " + day));
