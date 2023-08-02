@@ -1,5 +1,6 @@
 package tasks;
 
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
@@ -31,10 +32,10 @@ public class Task01 {
     }
 
     private static Stream<String> filterNames(Stream<String> names, Character firstLetter) {
-        return names.filter(name -> firstLetter.equals(name.charAt(0)));
+        return names.filter(name -> Objects.nonNull(name) && firstLetter.equals(name.charAt(0)));
     }
 
     private static Stream<String> getNames() {
-        return Stream.of("Emma", "Liam", "Olivia", "Noah", "Ava", "Ethan", "Sophia", "Mason");
+        return Stream.of("Emma", "Liam", "Olivia", null, "Noah", "Ava", "Ethan", "Sophia", "Mason");
     }
 }
