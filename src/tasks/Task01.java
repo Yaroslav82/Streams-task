@@ -6,6 +6,22 @@ import java.util.stream.Stream;
 
 public class Task01 {
 
+    public static void main(String[] args) {
+        start();
+    }
+
+    private static void start() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a letter to find names starting with that letter: ");
+        String line = scanner.nextLine();
+        if (line.length() == 1) {
+            Character letter = line.toUpperCase().charAt(0);
+            printNames(filterNames(getNames(), letter));
+        } else {
+            System.out.println("Incorrect value");
+        }
+    }
+
     private static void printNames(Stream<String> names) {
         AtomicInteger counter = new AtomicInteger(0);
         names.forEach(name -> System.out.println(counter.incrementAndGet() + ") " + name));
